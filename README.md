@@ -1,0 +1,2 @@
+# vitalpixel.org-v2
+Refactor of my (small) personal website, the purpose of which was mainly to learn how to setup an automated deploy strategy for a simple static website to an Amazon S3 bucket. The build process comes from a basic gulp recipe that compiles .scss files to .css, minifies everything and perform some other post-processor steps. The deployment is made through this git repo and TravisCI.
