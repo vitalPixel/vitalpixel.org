@@ -1,0 +1,19 @@
+{
+  "name": "vitalpixel.org-v2",
+  "version": "2.0.0",
+  "description": "Package to distribute v2 of vitalpixel.org to an S3 bucket using TravisCI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitalPixel/vitalpixel.org-v2.git"
+  },
+  "author": "Pico",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vitalPixel/vitalpixel.org-v2/issues"
+  },
+  "homepage": "https://github.com/vitalPixel/vitalpixel.org-v2#readme"
+}
