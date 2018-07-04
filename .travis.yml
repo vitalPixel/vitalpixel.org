@@ -1,9 +1,10 @@
+language: node_js
+node_js:
+  - node
 deploy:
   provider: s3
   access_key_id: AKIAJF4C3YFY2VOJJSIA
   secret_access_key:
     secure: gAGtybTTJXLa4QKPUV3LCyVmgvbigIvthln4MH5PDtvP3Av25MUBoYsnGwQmppsG1OUkdURXyrVwgsO/ZgKKXuHE55TwWPRsetxlcFiSZQx+TWW4EQF/+wkodqQzf467454ybi7j6Z6njiEsHBCgtK4wNIwiIyQlabBrniOTJuD9C0os1iSbMweV1JJI30wpc3pTGk6GtlL7sgG7qGf8Y1ZJk31SJQtn/3/eqN3LtNB4/+j8zb/ShEhht9/ybp6ovbkr1+wbaq/BJk18wjv9N6t+w51FIzAI0HpRQXjVwmzyx1/WuZ1zu7Hs7/IKhntiroDr9kC+HQJ4+46GnjVuKqic5gF3b6nb7ijPmFGQZ//RVpJ3Qdi1JThdkKK7QO3bN8SN+8ery28PdMIDNGgXzYzjjmYQKhmsIPCFwyz1IBrNdDLWsLqcmFaViHYmmR22rb03tsy/a/5FWG66S4YeN3K90ITOxO7eGtQcXvyH8+C9k5rZunGHtqgufycSWzDPKPiOIHd8Ce+mk/VdG7NLi7/t/2cUb7OWM2/qcZV+4vt7yz5zsaPz0F1P000umlbqbFdZHhWEVi8mLyVIHzgq/MpdV10qQgKFNRnJ8vA8Od8uwsLESb38QO+mSMmlLBd2ayFrUKEPJ0u3xm07xWyVptTB1WjRMdc8hG9KvPY6EfI=
   bucket: S3 Bucket
-language: node_js
-node_js:
-  - node
+  acl: public_read
