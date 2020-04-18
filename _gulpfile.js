@@ -33,41 +33,17 @@ function sassCompile() {
 		.pipe(gulp.dest('dev/css'))
 }
 
-// // We need to watch every scss file for any change, compile them every time they are saved and reload the server and refresh the browser
-// function watchSass() {
-// 	gulp.watch('dev/scss/**/*.scss', gulp.series(sassCompile, reload));
-// }
-
-// // We need to watch every js file for any change and reload the server and refresh the browser every time they are saved
-// function watchJs() {
-// 	gulp.watch('dev/scripts/**/*.js', gulp.series(reload));
-// }
-
-// // We need to watch every html file for any change and reload the server and refresh the browser every time they are saved
-// function watchHtml() {
-// 	gulp.watch('dev/**/*.html', gulp.series(reload));
-// }
+// We need to watch every scss file for any change, compile them every time they are saved and reload the server and refresh the browser
+// We need to watch every html file for any change and reload the server and refresh the browser every time they are saved
 
 function watchFiles() {
 	gulp.watch('dev/scss/**/*.scss', gulp.series(sassCompile, reload));
-	gulp.watch('dev/scripts/**/*.js', gulp.series(reload));
+	// If we ever need a javascript file, we will need to uncomment the next line to watch every js file for any change and reload the server and refresh the browser every time they are saved
+	// gulp.watch('dev/scripts/**/*.js', gulp.series(reload));
 	gulp.watch('dev/**/*.html', gulp.series(reload));
 }
-
-// function watchFiles() {
-// 	// We need to watch every scss file for any change, compile them every time they are saved and reload the server and refresh the browser
-// 	gulp.parallel(watchSass, watchJs, watchHtml);
-// }
-
-// exports.sassCompile = sassCompile;
-// exports.serve = serve;
-// exports.reload = reload;
-// exports.watchFiles = watchFiles;
 
 // We need to compile sass to css each time a file is saved to update the browser live
 const watch = gulp.series(sassCompile, gulp.parallel(serve, watchFiles));
 
 gulp.task('watch', watch);
-
-
-
