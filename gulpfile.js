@@ -1,8 +1,6 @@
 // OK Computer,
 // We need gulp to automate our workflow
 var gulp = require('gulp');
-// This is the syntax for gulp watch:
-// gulp.watch('files-to-watch', function('tasksToRun'));
 
 // We need the gulp-sass plugin to compile Sass to css
 var sass = require('gulp-sass');
@@ -86,15 +84,16 @@ function sassCompile() {
 		.pipe(gulp.dest(paths.styles.compiled))
 }
 
-// We need to autoprefix, add source maaps and minify our Css files
+// We need to autoprefix, compile Sass, minify our Css files and add source maaps
 function buildCss() {
     var plugins = [
-        autoprefixer({browsers: ['last 2 versions']}),
-        // TODO: compile Sass and minify outputed css
+        autoprefixer({browsers: ['last 2 versions']})
     ];
-	return gulp.src(paths.styles.compiled + '/*.css')
+	return gulp.src(paths.styles.dev)
 	.pipe(sourcemaps.init())
-		.pipe(postcss(plugins))
+	// TODO: compile Sass and minify outputed css
+	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+	.pipe(postcss(plugins))
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest(paths.styles.compiled))
 }
@@ -104,8 +103,7 @@ function buildScripts() {
 	return gulp.src(paths.markup.dev)
 		// We need to minify our js files
 		.pipe(gulpIf('*.js', uglify()))
-		// We need to minify our css files
-		.pipe(gulpIf('*.css', buildCss()))
+		// We need to concatenate our js and css files
 		.pipe(useref())
 		.pipe(gulp.dest(paths.markup.deploy))
 }
@@ -166,6 +164,6 @@ const watch = gulp.series(sassCompile, gulp.parallel(serve, watchFiles));
 gulp.task('watch', watch);
 
 // We need a build task to clean the deployment folder, compile sass to css, concatenate and minify js/css files, optimize images and copy everything (including fonts) to the deployment folder
-var build = gulp.series(cleanDep, sassCompile, gulp.parallel(buildScripts, images, fonts));
+var build = gulp.series(cleanDep, buildCss, gulp.parallel(buildScripts, images, fonts));
 gulp.task('build', build);
 
