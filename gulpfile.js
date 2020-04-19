@@ -1,11 +1,13 @@
 // OK Computer,
 // We need gulp to automate our workflow
 var gulp = require('gulp');
-// This is the syntax for gulp watch
+// This is the syntax for gulp watch:
 // gulp.watch('files-to-watch', function('tasksToRun'));
 
 // We need the gulp-sass plugin to compile Sass to css
-var sass = require('gulp-sass')
+var sass = require('gulp-sass');
+// We need to tell gulp-sass which compiler to use
+sass.compiler = require('node-sass');
 // We need Browser Sync to live preview, in the browser, any changes to the code
 var browserSync = require('browser-sync');
 // We need the gulp-useref plugin to concatenate multiple scripts in one single file
@@ -14,8 +16,6 @@ var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 // We need the gulp-if plugin to build conditional statements
 var gulpIf = require('gulp-if');
-// We need cssnano to minify css files
-var cssnano = require('cssnano');
 // We need the gulp-imagemin plugin to optimize our images
 var imagemin = require('gulp-imagemin');
 // We need the gulp-cache plugin to avoid repeating tasks over files that did not change
@@ -28,9 +28,6 @@ var autoprefixer = require('autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 // We need the gulp-postcss plugin in order to use multiple css psot processors
 var postcss = require('gulp-postcss');
-
-// // DO WE NEED GULP-CSSNANO?
-// var gulpcssnano = require('gulp-cssnano');
 
 // We need to declare our paths so we can easily change them in one single place in the future
 var rootPath = {
@@ -93,7 +90,7 @@ function sassCompile() {
 function buildCss() {
     var plugins = [
         autoprefixer({browsers: ['last 2 versions']}),
-        cssnano
+        // TODO: compile Sass and minify outputed css
     ];
 	return gulp.src(paths.styles.compiled + '/*.css')
 	.pipe(sourcemaps.init())
