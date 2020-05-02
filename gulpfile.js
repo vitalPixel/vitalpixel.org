@@ -91,7 +91,6 @@ function buildCss() {
     ];
 	return gulp.src(paths.styles.dev)
 	.pipe(sourcemaps.init())
-	// TODO: compile Sass and minify outputed css
 	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 	.pipe(postcss(plugins))
 	.pipe(sourcemaps.write())
