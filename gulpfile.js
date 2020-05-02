@@ -26,6 +26,12 @@ var autoprefixer = require('autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 // We need the gulp-postcss plugin in order to use multiple css psot processors
 var postcss = require('gulp-postcss');
+// We need the gulp-markdown plugin to parse markdown files into html files
+var markdown = require('gulp-markdown');
+// We need the gulp-front-matter plugin to specify which template file to apply for each maarkdown file when parsing to html
+const frontMatter = require('gulp-front-matter');
+// We need the gulp-layout plugin to apply the correct template to each markdown file when parsing to html
+var layout = require('gulp-layout');
 
 // We need to declare our paths so we can easily change them in one single place in the future
 var rootPath = {
@@ -37,6 +43,10 @@ var paths = {
 	root: {
 		dev: 'dev',
 		deploy: 'deploy'
+	},
+	content: {
+		dev: rootPath.dev + '/**/*.md',
+		deploy: rootPath.deploy
 	},
 	markup: {
 		dev: rootPath.dev + '/**/*.html',
@@ -75,6 +85,17 @@ function serve(done) {
 function reload(done) {
 	server.reload();
 	done();
+}
+
+// We need to parse any markdown files in our dev directory into html files in our deploy directory
+function parseMarkdown() {
+	return gulp.src(paths.content.dev)
+		.pipe(frontMatter())
+		.pipe(markdown())
+		.pipe(layout(function(file) {
+			return file.frontMatter;
+		}))
+		.pipe(gulp.dest(paths.content.deploy))
 }
 
 // We need to compile every scss file to a css file
@@ -146,6 +167,7 @@ function clear(done) {
 	return cache.clearAll(done);
 }
 
+exports.parseMarkdown = parseMarkdown;
 exports.sassCompile = sassCompile;
 exports.serve = serve;
 exports.reload = reload;
@@ -165,4 +187,3 @@ gulp.task('watch', watch);
 // We need a build task to clean the deployment folder, compile sass to css, concatenate and minify js/css files, optimize images and copy everything (including fonts) to the deployment folder
 var build = gulp.series(cleanDep, buildCss, gulp.parallel(buildScripts, images, fonts));
 gulp.task('build', build);
-
