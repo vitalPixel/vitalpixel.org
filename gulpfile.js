@@ -77,7 +77,8 @@ function serve(done) {
 	server.init({
 		server: {
 			baseDir: rootPath.dev
-		}
+		},
+		browser: "firefox"
 	});
 }
 
