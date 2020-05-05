@@ -1,6 +1,14 @@
 // OK Computer,
 // We need to write our main Sass
 
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 h1 {
     font-size: 46px;
 }
