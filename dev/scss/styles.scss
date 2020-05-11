@@ -1,14 +1,13 @@
 // OK Computer,
+// We need to import our stylesheet that changes the default styles of some selectors
+@import 'fix.scss';
 // We need to write our main Sass
 
-html {
-    box-sizing: border-box;
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-h1 {
-    font-size: 46px;
+// We need some basic styling for articles to look better by default
+article {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 33em;
+    margin: auto;
 }

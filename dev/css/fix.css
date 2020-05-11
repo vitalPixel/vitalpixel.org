@@ -58,10 +58,3 @@ img, svg, video, canvas {
 
 audio {
   width: 100%; }
-
-article {
-  font-family: Georgia, serif;
-  font-size: 18px;
-  line-height: 1.5;
-  max-width: 33em;
-  margin: auto; }
