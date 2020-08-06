@@ -1,13 +1,27 @@
 // OK Computer,
-// We need to import our stylesheet that changes the default styles of some selectors
+// Import the stylesheet that changes the default styles of some selectors
 @import 'fix.scss';
-// We need to write our main Sass
+// Write the main styles for our website
 
-// We need some basic styling for articles to look better by default
+// Set some styling for the logo
+.logo {
+    line-height: 1rem;
+}
+
+.logo__tagline {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+// Set some basic styling for articles to look better by default
 article {
     font-family: Georgia, serif;
     font-size: 18px;
     line-height: 1.5;
-    max-width: 33em;
+    max-width: 35rem;
     margin: auto;
+}
+
+p {
+    margin-bottom: 1rem;
 }
