@@ -34,5 +34,8 @@
     "gulp-useref": "^4.0.1",
     "pug": "^2.0.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "browserslist": [
+    "last 2 versions"
+  ]
 }

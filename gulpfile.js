@@ -109,7 +109,7 @@ function sassCompile() {
 // We need to autoprefix, compile Sass, minify our Css files and add source maaps
 function buildCss() {
     var plugins = [
-        autoprefixer({browsers: ['last 2 versions']})
+        autoprefixer()
     ];
 	return gulp.src(paths.styles.dev)
 	.pipe(sourcemaps.init())
