@@ -15,8 +15,8 @@ The deployment is made by TravisCI each time there is a push to the Master branc
 
 ## Develop
 1. Clone this repo;
-2. Running `nvm use` will make sure that you're using the latest node version sipported by the project;
-3. Running `npm install` will install all of th edev dependencies (mostly related to the gulp processes described below);
+2. Running `nvm use` will make sure that you're using the latest node version supported by the project;
+3. Running `npm install` will install all of the dev dependencies (mostly related to the gulp processes described below);
 4. Running `gulp watch` will spin up a local server that will automatically open the index.html on Firefox and automatically refresh the browser each time you save any changes to the .html or .scss files.
 
 ## Deploy
