@@ -1,0 +1,223 @@
+@font-face {
+    font-family: 'Neue Kabel Light';
+    src: url('/fonts/NeueKabel-Light.woff2') format('woff2'),
+         url('/fonts/NeueKabel-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Simple CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    background-color: #65B3B1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Neue Kabel Light', Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.hero__heading {
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    overflow-y: scroll;
+}
+
+.hero__heading h1 {
+    word-spacing: 1.5rem;
+}
+
+.hero__img {
+    z-index: 1;
+    width: 100vw;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.separator {
+    z-index: 3;
+    height: 6vh;
+    min-height: 40px;
+    margin-top: 100vh;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #CDCEB4;
+}
+
+.content {
+    z-index: 2;
+    height: 94vh;
+    padding: 1rem;
+    position: sticky;
+    top: 6vh;
+    background-color: #83A4A5;
+}
+
+.content--alt {
+    margin-top: 50vh;
+    background-color: #CDCEB4;
+}
+
+.content h2 {
+    margin-top: 0.5rem;
+}
+
+.content h3 {
+    margin-top: 1.5rem;
+}
+
+.content h2, .content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.content__header h2, .content__header h3 {
+    margin-top: 0.5rem;
+}
+
+.intro {
+    display: flex;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+}
+
+.intro img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    color: transparent;
+    opacity: 0;
+    animation: slideshow 66s linear infinite 0s;
+    backface-visibility: hidden;
+  }
+  
+  .intro img:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .intro img:nth-child(2) {
+    animation-delay: 6s;
+  }
+  
+  .intro img:nth-child(3) {
+    animation-delay: 12s;
+  }
+  
+  .intro img:nth-child(4) {
+    animation-delay: 18s;
+  }
+  
+  .intro img:nth-child(5) {
+    animation-delay: 24s;
+  }
+  
+  .intro img:nth-child(6) {
+    animation-delay: 30s;
+  }
+  
+  .intro img:nth-child(7) {
+    animation-delay: 36s;
+  }
+  
+  .intro img:nth-child(8) {
+    animation-delay: 42s;
+  }
+  
+  .intro img:nth-child(9) {
+    animation-delay: 48s;
+  }
+  
+  .intro img:nth-child(10) {
+    animation-delay: 54s;
+  }
+
+  .intro img:nth-child(11) {
+    animation-delay: 60s;
+  }
+  
+  @keyframes slideshow {  
+    0% {
+      opacity: 0;
+      animation-timing-function: ease-in;
+    }
+    4.55% {
+     opacity: 1;
+     animation-timing-function: ease-out;
+    }
+    9.09% {
+      opacity: 1;
+    }
+    13.64% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.intro__text {
+    z-index: 1;
+    height: 100%;
+    max-width: 460px;
+    padding: 1rem;
+    overflow-y: scroll;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.media {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.media__header {
+    padding: 1rem;
+    text-align: right;
+}
+
+.media__main {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.video__container {
+    flex-grow: 1;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+}
