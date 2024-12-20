@@ -26,3 +26,14 @@ function updateSeparatorHeightVar() {
 
 window.addEventListener('load', updateSeparatorHeightVar);
 window.addEventListener('resize', updateSeparatorHeightVar);
+
+const modal = document.querySelector('.modal');
+const closeButtons = document.querySelectorAll('.modal__close');
+
+// Close modal
+closeButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        modal.classList.remove('modal--open');
+        document.body.classList.remove('body-lock');
+    });
+});
