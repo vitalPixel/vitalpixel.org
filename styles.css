@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --separator-height: 0px;
+}
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 1.5;
@@ -71,10 +75,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .content {
     z-index: 2;
-    height: 94vh;
+    height: calc(100vh - var(--separator-height));
     padding: 1rem;
     position: sticky;
-    top: 6vh;
+    top: var(--separator-height);
     background-color: #83A4A5;
 }
 
