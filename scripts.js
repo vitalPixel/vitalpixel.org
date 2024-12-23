@@ -18,6 +18,10 @@
 //     debounce(reverseScroll, 300);
 // });
 
+let player;
+const modal = document.querySelector('.modal');
+const closeButtons = document.querySelectorAll('.modal__close');
+
 function updateSeparatorHeightVar() {
     const separator = document.querySelector('.separator');
     const separatorHeight = separator.offsetHeight;
@@ -27,13 +31,32 @@ function updateSeparatorHeightVar() {
 window.addEventListener('load', updateSeparatorHeightVar);
 window.addEventListener('resize', updateSeparatorHeightVar);
 
-const modal = document.querySelector('.modal');
-const closeButtons = document.querySelectorAll('.modal__close');
+// Load YouTube Player API and create the player
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('postcards', {
+        videoId: 'X61BVv6pLtw',
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
 
-// Close modal
+function onPlayerReady(event) {
+    player = event.target;
+    console.log('Player ready');
+}
+
+// Close modal and start video playback
 closeButtons.forEach(function(button) {
     button.addEventListener('click', function() {
         modal.classList.remove('modal--open');
         document.body.classList.remove('body-lock');
+        if (player) {
+            try {
+                player.playVideo();
+            } catch (error) {
+                console.error('Error playing video:', error);
+            }
+        }
     });
 });

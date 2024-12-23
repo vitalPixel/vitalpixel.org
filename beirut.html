@@ -8,6 +8,14 @@
         <meta name="theme-color" content="#ffffff">
 
         <meta name="description" content="A small personal/public space to gather some links and content.">
+
+        <meta http-equiv="Content-Security-Policy"
+            content="default-src 'self';
+                    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://*.youtube.com https://*.ytimg.com;
+                    frame-src https://www.youtube.com https://*.youtube.com https://www.youtube-nocookie.com;
+                    img-src 'self' https://*.ytimg.com;
+                    connect-src 'self' https://*.youtube.com;">
+
         <title>Beirut in Utrecht</title>
 
         <link rel="stylesheet" href="styles.css">
@@ -109,7 +117,8 @@
                     <h2 itemprop="headline">Postais de Itália</h2>
                     <div class="video__container">
                         <iframe class="video"
-                            src="https://www.youtube-nocookie.com/embed/X61BVv6pLtw?si=16xCzCULYoV3KCv_&autoplay=0&mute=0"
+                            id="postcards"
+                            src="https://www.youtube-nocookie.com/embed/X61BVv6pLtw?si=16xCzCULYoV3KCv_&enablejsapi=1"
                             title="Beirut - Postcards from Italy"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -126,7 +135,8 @@
             </footer>
         </article>
     
-    <script src="scripts.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="scripts.js"></script>
     
     </body>
 </html>
