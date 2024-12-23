@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modal--open {
@@ -59,6 +59,25 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2rem;
   color: #fff;
   background-color: #000;
+  outline: solid 3px #CDCEB4;
+  outline-offset: -12px;
+}
+
+.modal__btns {
+  margin-top: 2rem;
+}
+
+.modal__btns button {
+  min-width: 80px;
+  min-height: 30px;
+  margin: 0 0.5rem;
+  padding: 0.6rem;
+  border: none;
+  cursor: pointer;
+  font-family: 'Neue Kabel Light', Arial, sans-serif;
+  font-variant: small-caps;
+  font-size: 0.9rem;
+  background-color: #CDCEB4;
 }
 
 .hero {
